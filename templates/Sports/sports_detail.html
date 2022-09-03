@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'Sports/css/sport.css' %}">
+{% endblock head %}
+
+{% block title %}{{sport.name}}{% endblock title %}
+
+{% block main %}
+<h1>{{sport.name}}</h1>
+<div class="sport-details">
+    <div class="sport-image">
+        <img src="{{sport.image.url}}" alt="{{sport.name}}" height="280" width="280">
+    </div>
+    <div class="sport-description">
+        <p>{{sport.description}}</p>
+        <a href="/sports/{{sport.name}}/book/">Book Now</a>
+    </div>
+</div>
+<div class="sport-details">
+    <div class="sport-detail-title">
+        <h2>Inventory</h2>
+    </div>
+    <div class="sport-items">
+        {% for item in inventory %}
+        <p class="sport-item">{{item.quantity}} x {{item.name}}</p>
+        {% endfor %}
+    </div>
+</div>
+<div class="sport-reviews">
+    <h2>Reviews</h2>
+    {% if user.is_authenticated %}
+    <div class="add-review">
+        <form action="/sports/{{sport.name}}/" method="post" class="add-review-form">
+            {% csrf_token %}
+            <input type="text" name="review" placeholder="Add Review" class="add-review-input">
+            <input type="submit" value="Add" class="add-review-submit">
+        </form>
+    </div>
+    {% else %}
+    <div class="add-review">
+        <p>Please <a href="{% url 'login' %}?next={{request.path}}">login</a> to add a review.</p>
+    </div>
+    {% endif %}
+    {% for review in reviews %}
+    <div class="review">
+        <h3>{{review.user.name}}</h3>
+        <p>{{review.review}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock main %}

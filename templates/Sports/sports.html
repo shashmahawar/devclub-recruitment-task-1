@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'Sports/css/sports.css' %}">
+{% endblock head %}
+
+{% block title %}Sports{% endblock title %}
+
+{% block main %}
+<h1>Sport Facilities</h1>
+<div class="sports-filter">
+    <a href="/sports/filter/A/">A</a><a href="/sports/filter/B/">B</a><a href="/sports/filter/C/">C</a><a
+        href="/sports/filter/D/">D</a><a href="/sports/filter/E/">E</a><a href="/sports/filter/F/">F</a><a
+        href="/sports/filter/G/">G</a><a href="/sports/filter/H/">H</a><a href="/sports/filter/I/">I</a><a
+        href="/sports/filter/J/">J</a><a href="/sports/filter/K/">K</a><a href="/sports/filter/L/">L</a><a
+        href="/sports/filter/M/">M</a><a href="/sports/filter/N/">N</a><a href="/sports/filter/O/">O</a><a
+        href="/sports/filter/P/">P</a><a href="/sports/filter/Q/">Q</a><a href="/sports/filter/R/">R</a><a
+        href="/sports/filter/S/">S</a><a href="/sports/filter/T/">T</a><a href="/sports/filter/U/">U</a><a
+        href="/sports/filter/V/">V</a><a href="/sports/filter/W/">W</a><a href="/sports/filter/X/">X</a><a
+        href="/sports/filter/Y/">Y</a><a href="/sports/filter/Z/">Z</a><a href="/sports/">ALL</a>
+</div>
+<div class="sport-cards">
+    {% if not sports %}
+    <h2>No Sports Found!</h2>
+    {% endif %}
+    {% for sport in sports %}
+    <div class="sport-card">
+        <img src="/media/{{sport.image}}/" alt="sport-image" height="280" width="280">
+        <h2>{{sport.name}}</h2>
+        <a href="/sports/{{sport.name}}/">View Sport</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock main %}

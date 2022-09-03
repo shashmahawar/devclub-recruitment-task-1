@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'Sports/css/book.css' %}">
+{% endblock head %}
+
+{% block title %}Slot Booking{% endblock title %}
+
+{% block main %}
+<h1>Swimming - Slot Booking</h1>
+<div class="slot-booking-form">
+    <form action="/sports/{{sport.name}}/book/" method="post">
+        {% csrf_token %}
+        <div class="slot-booking-input">
+            <p>Booking Date: </p>
+            <input type="date" name="date" onchange="getSlots()" id="booking-date">
+        </div>
+        <div class="slot-booking-input" hidden="hidden" id="booking-slot-box">
+            <p>Choose Slot: </p>
+            <select name="slot" id="booking-slot" onchange="getAvailability()">
+                <option value="0">Select Slot</option>
+            </select>
+        </div>
+        <div class="slot-booking-input" hidden="hidden" id="booking-availability-box">
+            <p>Availability: </p>
+            <p id="booking-availability" style="font-weight: 400;"></p>
+        </div>
+        <input type="submit" value="Book Now" id="booking-btn">
+        <h3 id="no-slot">No slot available on this day!</h3>
+        <h3 id="already-booked">You have already booked this slot!</h3>
+        <h3 id="backend-response">{{message}}</h3>
+    </form>
+</div>
+{% endblock main %}
+
+{% block footer %}
+<script src="{% static 'Sports/js/book.js' %}"></script>
+{% endblock footer %}

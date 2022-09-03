@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'Home/css/home.css' %}">
+{% endblock head %}
+
+{% block title %}Home{% endblock title %}
+
+{% block main %}
+<h1>Welcome to Mittal Sports Complex</h1>
+<h2>Trending Sports</h2>
+<div class="trending">
+    {% for sport in trending %}
+    <div class="sport-card">
+        <img src="/media/{{sport.image}}/" alt="sport-image" height="280" width="280">
+        <h3>{{sport.name}}</h3>
+        <a href="/sports/{{sport.name}}/">View Sport</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock main %}

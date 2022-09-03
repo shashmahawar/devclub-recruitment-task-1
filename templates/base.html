@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Mittal Sports Complex, IIT Delhi">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'assets/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'assets/base.css' %}">
+    {% block head %}{% endblock head %}
+    <title>{% block title %}{% endblock title %} | Mittal Sports Complex</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'assets/favicon.png' %}" alt="Mittal Sports Complex"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="{% url 'sports' %}">Sports</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'bookings' %}">My Bookings</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block main %}{% endblock main %}
+    </main>
+    <footer>
+        <p class="footer-text">&copy; 2022 Copyright: <a href="https://shashank.biz" target="_blank">Shashank Mahawar</a></p>
+    </footer>
+    {% block footer %}{% endblock footer %}
+</body>
+</html>

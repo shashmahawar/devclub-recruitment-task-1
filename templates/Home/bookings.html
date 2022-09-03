@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'Home/css/bookings.css' %}">
+{% endblock head %}
+
+{% block title %}Home{% endblock title %}
+
+{% block main %}
+<h1>Past Bookings</h1>
+<table>
+    <tr>
+        <th>Sport</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    {% for p in past %}
+    <tr>
+        <td>{{p.sport}}</td>
+        <td>{{p.slot.date|date:"d-M-Y"}}</td>
+        <td>{{p.slot.time}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h1>Upcoming Bookings</h1>
+<table>
+    <tr>
+        <th>Sport</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    {% for u in upcoming %}
+    <tr>
+        <td>{{u.sport}}</td>
+        <td>{{u.slot.date|date:"d-M-Y"}}</td>
+        <td>{{u.slot.time}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock main %}

@@ -1,0 +1,157 @@
+h1 {
+    padding: 2% 5%;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 3vh;
+}
+
+.sport-details {
+    display: flex;
+    width: 80%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 5vh;
+}
+
+.sport-image {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sport-image img {
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.sport-description {
+    padding: 20px;
+    position: relative;
+}
+
+.sport-description a {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 150px;
+    bottom: 20px;
+}
+
+.sport-detail-title {
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sport-items {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.sport-item {
+    padding: 10px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 2.6rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.sport-reviews {
+    width: 80%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 5vh;
+    padding: 20px;
+}
+
+.sport-reviews h2 {
+    font-weight: 500;
+}
+
+.add-review {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.add-review-form {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.add-review-input {
+    width: 85%;
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+}
+
+.add-review-submit {
+    width: max(10%,40px);
+    background-color: black;
+    height: 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.review {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.review h3 {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.review p {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        padding-top: 3vh;
+    }
+    .sport-details {
+        flex-direction: column;
+        width: 300px;
+    }
+    .sport-reviews {
+        width: 300px;
+    }
+    .sport-description a {
+        position: relative;
+        bottom: 0;
+        margin-top: 2vh;
+    }
+    .sport-detail-title {
+        height: 80px;
+    }
+    .add-review-input {
+        width: 200px;
+    }
+}

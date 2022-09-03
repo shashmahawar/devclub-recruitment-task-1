@@ -1,0 +1,43 @@
+h1 {
+    padding: 2% 5%;
+}
+
+.slot-booking-form {
+    width: 90%;
+    margin: auto;
+}
+
+.slot-booking-input {
+    display: flex;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.slot-booking-input p {
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+#booking-slot-box, #booking-availability-box {
+    display: none;
+}
+
+#no-slot, #already-booked {
+    display: none;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+#backend-response {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+#booking-btn {
+    padding: 5px 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
